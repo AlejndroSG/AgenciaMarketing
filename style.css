@@ -56,3 +56,16 @@ section#banner{
         }
     }
 }
+
+section#RRSS{
+    position: absolute;
+    top: 30px;
+    right: 85px;
+    background-color: transparent;
+    display: flex;
+    gap: 5px;
+}
+
+/* .ig path{
+    fill: black;
+} */
