@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.prev-button').addEventListener('click', () => {
         navigate(-1);
         setTimeout(() => {
-            startAutoplay(3000);
+            startAutoplay(5000);
           }, 100);
     });
 
     document.querySelector('.next-button').addEventListener('click', () => {
         navigate(1);
         setTimeout(() => {
-            startAutoplay(3000);
+            startAutoplay(5000);
           }, 100);
     });
 
@@ -58,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalImages = document.querySelectorAll('.gallery-item').length;
       
         if (direction === 1 && currentIndex === totalImages - 1) {
-          // Si se llega a la última imagen y se presiona "Siguiente", no retroceder
-          currentIndex = 0; // En su lugar, vuelve a la primera imagen
+          currentIndex = 0;
         } else {
           currentIndex = (currentIndex + direction + totalImages) % totalImages;
         }
@@ -71,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoplayInterval = null;
 
     function startAutoplay(interval) {
-        stopAutoplay(); // Detiene cualquier autoplay anterior para evitar múltiples intervalos.
+        stopAutoplay();
         autoplayInterval = setInterval(() => {
-            navigate(1); // Navega a la siguiente imagen cada intervalo de tiempo.
+            navigate(1);
         }, interval);
     }
 
@@ -81,10 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoplayInterval);
     }
 
-    // Iniciar autoplay con un intervalo de 3 segundos.
-    startAutoplay(3000);
+    startAutoplay(5000);
 
-    // Opcional: Detener autoplay cuando el usuario interactúa con los botones de navegación.
     document.querySelectorAll('.nav-button').forEach(button => {
         button.addEventListener('click', stopAutoplay);
     });
