@@ -5,6 +5,7 @@ const fb = document.querySelector('.fb');
 const fbPath = document.querySelector("#RRSS .fb path");
 const mail = document.querySelector(".mail svg");
 const was = document.querySelector(".was svg");
+const contadoresDiv = document.querySelectorAll(".contador");
 // const 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,67 +23,95 @@ document.addEventListener('DOMContentLoaded', () => {
         fbPath.style.fill = 'white';
     })
 
-    mail.addEventListener("mouseleave", () =>{
-        mail.style.scale = 1;
-    })
-    mail.addEventListener("mouseover", () =>{
-        mail.style.scale = 1.5;
-    })
+    if(mail){
+        mail.addEventListener("mouseleave", () =>{
+            mail.style.scale = 1;
+        })
+        mail.addEventListener("mouseover", () =>{
+            mail.style.scale = 1.5;
+        })
+    }
 
-    was.addEventListener("mouseover", () => {
-        was.style.scale = 1.5;
-    })
-    was.addEventListener("mouseleave", () => {
-        was.style.scale = 1;
-    })
+    if(was){
+        was.addEventListener("mouseover", () => {
+            was.style.scale = 1.5;
+        })
+        was.addEventListener("mouseleave", () => {
+            was.style.scale = 1;
+        })
+    }
 
 
     let currentIndex = 0;
 
-    document.querySelector('.prev-button').addEventListener('click', () => {
-        navigate(-1);
-        setTimeout(() => {
-            startAutoplay(5000);
-          }, 100);
-    });
-
-    document.querySelector('.next-button').addEventListener('click', () => {
-        navigate(1);
-        setTimeout(() => {
-            startAutoplay(5000);
-          }, 100);
-    });
-
-    function navigate(direction) {
-        const galleryContainer = document.querySelector('.gallery-container');
-        const totalImages = document.querySelectorAll('.gallery-item').length;
-      
-        if (direction === 1 && currentIndex === totalImages - 1) {
-          currentIndex = 0;
-        } else {
-          currentIndex = (currentIndex + direction + totalImages) % totalImages;
-        }
-      
-        const offset = -currentIndex * 100;
-        galleryContainer.style.transform = `translateX(${offset}%)`;
-      }
-
-    let autoplayInterval = null;
-
-    function startAutoplay(interval) {
-        stopAutoplay();
-        autoplayInterval = setInterval(() => {
+    if (document.querySelector('.prev-button') && document.querySelector('.next-button')) {
+        document.querySelector('.prev-button').addEventListener('click', () => {
+            navigate(-1);
+            setTimeout(() => {
+                startAutoplay(5000);
+              }, 100);
+        });
+    
+        document.querySelector('.next-button').addEventListener('click', () => {
             navigate(1);
-        }, interval);
+            setTimeout(() => {
+                startAutoplay(5000);
+              }, 100);
+        });
     }
 
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
+    if(document.querySelector('.prev-button') && document.querySelector('.next-button')) {
+        function navigate(direction) {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const totalImages = document.querySelectorAll('.gallery-item').length;
+          
+            if (direction === 1 && currentIndex === totalImages - 1) {
+              currentIndex = 0;
+            } else {
+              currentIndex = (currentIndex + direction + totalImages) % totalImages;
+            }
+          
+            const offset = -currentIndex * 100;
+            galleryContainer.style.transform = `translateX(${offset}%)`;
+          }
+    
+        let autoplayInterval = null;
+    
+        function startAutoplay(interval) {
+            stopAutoplay();
+            autoplayInterval = setInterval(() => {
+                navigate(1);
+            }, interval);
+        }
+    
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+    
+        startAutoplay(5000);
+    
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', stopAutoplay);
+        });
     }
+    
 
-    startAutoplay(5000);
+    const vel = 3.5;
+    let contador = 0;
 
-    document.querySelectorAll('.nav-button').forEach(button => {
-        button.addEventListener('click', stopAutoplay);
+    contadoresDiv.forEach(contDiv => {
+        setTimeout(() => {
+        let objetivo = contDiv.getAttribute('value');
+
+            function sumaContador(){
+                contador += 1;
+                contDiv.innerHTML = "<b>"+contador+"+"+"</b>";
+                if(contador < objetivo){
+                    setTimeout(sumaContador, vel);
+                }
+            }
+            
+            sumaContador();
+        }, 8000)
     });
 })
