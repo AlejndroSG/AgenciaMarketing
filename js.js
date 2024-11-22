@@ -6,6 +6,7 @@ const fbPath = document.querySelector("#RRSS .fb path");
 const mail = document.querySelector(".mail svg");
 const was = document.querySelector(".was svg");
 const contadoresDiv = document.querySelectorAll(".contador");
+const enlaces = document.querySelectorAll("#ajustes div a");
 // const 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -112,6 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             sumaContador();
-        }, 8000)
+        }, 4000)
     });
+
+    enlaces.forEach(enlace => {
+        const svg = enlace.querySelector("svg path");
+        enlace.addEventListener("mouseover", () => {
+            svg.style.fill = "rgba(242, 141, 141, 0.39)";
+        })
+        enlace.addEventListener("mouseleave", () => {
+            svg.style.fill = "#000000";
+        })
+    })
 })
