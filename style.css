@@ -274,7 +274,12 @@ section#equipo{
 
         img{
             max-width: 100%;
-            object-fit: cover;
+            /* object-fit: cover; */
+            filter: grayscale(100%);
+            transition: all .3s ease;
+        }
+        img:hover{
+            filter: none;
         }
 
         h3{
@@ -557,10 +562,6 @@ section#ajustes{
 }
 
 /* PROYECTOS */
-body#proyects{
-  background-color: #F2D4AE;
-}
-
 section#proyectos{
   text-align: center;
   margin: 50px 0;
@@ -575,7 +576,7 @@ section#proyectos{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     overflow: hidden;
 
     & div{
