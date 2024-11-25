@@ -68,12 +68,17 @@ section#banner{
     align-items: center;
     width: 100%;
 
-    .slider{
-        width: 35%;
-        text-align: center;
-        color: white;
+    & div figure{
+        svg{
+          width: 75px;
+          height: 75px;
+          
+          path{
+            fill: #F2D4AE;
+          }
+        }
         h1{
-            font-size: 80px;
+            font-size: 100px;
             margin-bottom: 15px;
         }
         p{
@@ -137,7 +142,7 @@ section#banner{
         p{
             font-size: 20px;
             color: #F2D4AE;
-            width: 50%;
+            width: 40%;
         }
 }
 
@@ -314,13 +319,19 @@ section#como{
         width: 100%;
         text-align: center;
         margin: auto;
-
+        
         div{
             padding: 50px 0;
             display: flex;
             flex-flow: column;
             align-items: center;
-            
+            opacity: 1;
+            view-timeline-name: --efecto;
+            view-timeline-axis: block;
+            animation-timeline: --efecto;
+            animation-name: opacidad;
+            animation-range: entry 0% cover 25%;
+
             h2,p{
                 width: 40%;
             }
@@ -583,9 +594,16 @@ section#proyectos{
     width: 100%;
     height: 60vh;
     overflow: hidden;
+    opacity: 1;
+    view-timeline-name: --efecto;
+    view-timeline-axis: block;
+    animation-timeline: --efecto;
+    animation-name: opacidad;
+    animation-range: entry 0% cover 60%;
 
     & div{
         width: 50%;
+                
         p{
           text-align: justify;
         }
@@ -604,6 +622,15 @@ section#proyectos{
     display: flex;
     flex-flow: column;
     gap: 20px;
+  }
+}
+
+@keyframes opacidad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

@@ -7,8 +7,9 @@ const mail = document.querySelector(".mail svg");
 const was = document.querySelector(".was svg");
 const contadoresDiv = document.querySelectorAll(".contador");
 const enlaces = document.querySelectorAll("#ajustes div a");
-// const 
 
+
+// FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
     ig.addEventListener("mouseover", () => {
         igPath.style.fill = 'pink';
@@ -49,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.prev-button').addEventListener('click', () => {
             navigate(-1);
             setTimeout(() => {
-                startAutoplay(5000);
+                startAutoplay(6000);
               }, 100);
         });
     
         document.querySelector('.next-button').addEventListener('click', () => {
             navigate(1);
             setTimeout(() => {
-                startAutoplay(5000);
+                startAutoplay(6000);
               }, 100);
         });
     }
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(autoplayInterval);
         }
     
-        startAutoplay(5000);
+        startAutoplay(6000);
     
         document.querySelectorAll('.nav-button').forEach(button => {
             button.addEventListener('click', stopAutoplay);
