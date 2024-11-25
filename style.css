@@ -293,6 +293,11 @@ section#equipo{
         p{
             margin: 10px 0;
         };
+        svg:hover{
+            path{
+               fill: #0078D4;
+            }
+        }
     }
 }
 
