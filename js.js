@@ -9,6 +9,9 @@ const contadoresDiv = document.querySelectorAll(".contador");
 const enlaces = document.querySelectorAll("#ajustes div a");
 const noticias = document.querySelectorAll("#destacados .interesantes article");
 const modal = document.querySelector(".modal");
+const secciones = document.querySelectorAll("#notices section");
+// let butmodal = null;
+
 
 
 // FUNCIONALIDADES
@@ -138,14 +141,32 @@ document.addEventListener('DOMContentLoaded', () => {
             
             modal.innerHTML = `
             <article>
+                <button>&cross;</button>
                 <img src="${img.src}" alt="${h2.innerHTML}">
                 <h2>${h2.innerHTML}</h2>
                 <p>${p.innerHTML}</p>
             </article>
             `;
-            
+    
+            let butmodal = document.querySelector(".modal button");
             modal.style.top = "50%";
-            modal.style.filter = "none";
+            modal.style.left = "50%";
+            document.body.style.overflow = "hidden";
+
+            secciones.forEach(seccion => {
+                seccion.style.filter = "blur(10px) brightness(0.7) opacity(0.7) saturate(0.5) contrast(0.5)";
+                seccion.style.transition = "all 0.5s";
+            })
+            
+            butmodal.addEventListener("click", () => {
+                modal.style.top = "-50%";
+                modal.style.left = "50%";
+                document.body.style.overflow = "auto";
+                secciones.forEach(seccion => {
+                    seccion.style.filter = "none";
+                })
+            })
         })
     });
+
 })
