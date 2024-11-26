@@ -7,23 +7,25 @@ const mail = document.querySelector(".mail svg");
 const was = document.querySelector(".was svg");
 const contadoresDiv = document.querySelectorAll(".contador");
 const enlaces = document.querySelectorAll("#ajustes div a");
+const noticias = document.querySelectorAll("#destacados .interesantes article");
+const modal = document.querySelector(".modal");
 
 
 // FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
-    ig.addEventListener("mouseover", () => {
-        igPath.style.fill = 'pink';
-    })
-    ig.addEventListener("mouseleave", () => {
-        igPath.style.fill = 'white';
-    })
+    // ig.addEventListener("mouseover", () => {
+    //     igPath.style.fill = 'pink';
+    // })
+    // ig.addEventListener("mouseleave", () => {
+    //     igPath.style.fill = 'white';
+    // })
 
-    fb.addEventListener("mouseover", () => {
-        fbPath.style.fill = 'rgba(43, 43, 247)';
-    })
-    fb.addEventListener("mouseleave", () => {
-        fbPath.style.fill = 'white';
-    })
+    // fb.addEventListener("mouseover", () => {
+    //     fbPath.style.fill = 'rgba(43, 43, 247)';
+    // })
+    // fb.addEventListener("mouseleave", () => {
+    //     fbPath.style.fill = 'white';
+    // })
 
     if(mail){
         mail.addEventListener("mouseleave", () =>{
@@ -126,4 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
             svg.style.fill = "#000000";
         })
     })
+
+    noticias.forEach(noticia => {
+        noticia.addEventListener("click", () =>{
+            // document.body.style.filter = "blur(10px)";
+            let img = noticia.querySelector("img");
+            let h2 = noticia.querySelector("h2");
+            let p = noticia.querySelector("p");
+            
+            modal.innerHTML = `
+            <article>
+                <img src="${img.src}" alt="${h2.innerHTML}">
+                <h2>${h2.innerHTML}</h2>
+                <p>${p.innerHTML}</p>
+            </article>
+            `;
+            
+            modal.style.top = "50%";
+            modal.style.filter = "none";
+        })
+    });
 })
