@@ -16,19 +16,19 @@ const secciones = document.querySelectorAll("#notices section");
 
 // FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
-    // ig.addEventListener("mouseover", () => {
-    //     igPath.style.fill = 'pink';
-    // })
-    // ig.addEventListener("mouseleave", () => {
-    //     igPath.style.fill = 'white';
-    // })
+    ig.addEventListener("mouseover", () => {
+        igPath.style.fill = 'pink';
+    })
+    ig.addEventListener("mouseleave", () => {
+        igPath.style.fill = 'white';
+    })
 
-    // fb.addEventListener("mouseover", () => {
-    //     fbPath.style.fill = 'rgba(43, 43, 247)';
-    // })
-    // fb.addEventListener("mouseleave", () => {
-    //     fbPath.style.fill = 'white';
-    // })
+    fb.addEventListener("mouseover", () => {
+        fbPath.style.fill = 'rgba(43, 43, 247)';
+    })
+    fb.addEventListener("mouseleave", () => {
+        fbPath.style.fill = 'white';
+    })
 
     if(mail){
         mail.addEventListener("mouseleave", () =>{
