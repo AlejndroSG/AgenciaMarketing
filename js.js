@@ -12,12 +12,35 @@ const modal = document.querySelector(".modal");
 const secciones = document.querySelectorAll("#notices section");
 const header = document.querySelector("#resto");
 const banner = document.querySelector("#banner");
-// let butmodal = null;
-
+const botonBurguer = document.querySelector("div.menu > button"); //Seleccionamos el botón que acciona el navbar
 
 
 // FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
+    const botonCross = document.querySelector(".navbar button"); //El botón que cierra el navbar
+    const navbar = document.querySelector("div.navbar"); //El propio navbar
+    
+    botonBurguer.addEventListener("click", () => { //Cada vez que se haga click en el boton principal
+        alert("click");
+        if(window.innerWidth > 500){ //Si el ancho de la pantalla es mayor que 500
+            navbar.style.left = "80%"; //Le damos un 80% al navbar para que se vea en su totalidad --> además, al tener el transition ya en la clase y realizar un cambio en el valor left, se activará la animación
+            navbar.style.width = "20%"; //Le ponemos un 20% de ancho
+            botonCross.style.color = "white"; //Ponemos el boton de la X del navbar en blanco
+        }else{ //Si el ancho es menor de 500
+            navbar.style.left = "0%"; //0% para que se vea el navbar en su totalidad
+            navbar.style.width = "100vw" //Le ponemos el 100% del ancho de la pantalla
+            botonCross.style.color = "white"; //Ponemos el boton de la X del navbar en blanco
+        }
+        
+        navbar.addEventListener("mouseleave",()=>{ //Si se sale el cursos del navbar
+            navbar.style.left = "100%"; //Se cierra
+        })
+
+    })
+    botonCross.addEventListener("click", () =>{ //Cada vez que se haga click en el boton de la X
+        navbar.style.left = "100%"; //Se cierra
+    })
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 0) {
             // header.classList.add("scrolled");
@@ -95,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
           
             const offset = -currentIndex * 100;
             galleryContainer.style.transform = `translateX(${offset}%)`;
-            banner.style.background = `url(./fotos/Primera_Página/Banner/${currentIndex + 1}.png) no-repeat center center/cover`;
+            banner.style.background = `url(./fotos/Primera_Página/Banner/${currentIndex}.png) no-repeat center center/cover`;
+            // background: url(./fotos/Primera_Página/Banner/0.png);
           }
     
         let autoplayInterval = null;

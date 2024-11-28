@@ -59,6 +59,35 @@ header{
     /* top: 0; */
 }
 
+div.menu {
+  display: none;
+  button {
+      font-size: 2rem;
+      background-color: transparent;
+      border: none;
+      color: white;
+  }
+
+  div.navbar {
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      min-height: 100vh;
+      min-width: 20%;
+      padding: 20px;
+      background-color: royalblue;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transition: left 0.5s;
+      z-index: 999;
+
+      a{
+          color: whitesmoke;
+      }
+  }
+}
+
 .scrolled{
     background-color: rgba(54, 54, 54, 0.918);
     position: fixed;
@@ -67,8 +96,9 @@ header{
 /* PRIMERA PÁGINA */
 
 section#banner{
-    background: url(./fotos/Primera_Página/Banner/Bckground_banner.png);
+    /* background: url(./fotos/Primera_Página/Banner/Bckground_banner.png); */
     /* background: url(./fotos/Primera_Página/Banner/dinámicas-de-trabajo-en-equipo\ 1.png); */
+    background: url(./fotos/Primera_Página/Banner/0.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -77,6 +107,7 @@ section#banner{
     justify-content: center;
     align-items: center;
     width: 100%;
+    transition: all 1.5s;
 
     & div figure{
         svg{
@@ -1193,4 +1224,24 @@ footer{
     transform: translate(100px, 0px) scale(1);
     opacity: 1;
     transition: 0.3s;
+  }
+
+
+  /* RESPONSIVE */
+  @media screen and (max-width: 1024px) {
+    div.menu{
+      display: block;
+    }
+
+    header{
+      .nav{
+          & > div:nth-child(2){
+              display: none;
+          }
+      }
+    }
+
+    /* header > div#RRSS{
+      display: none;
+    } */
   }
