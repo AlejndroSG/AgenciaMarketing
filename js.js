@@ -13,19 +13,20 @@ const secciones = document.querySelectorAll("#notices section");
 const header = document.querySelector("#resto");
 const banner = document.querySelector("#banner");
 const botonBurguer = document.querySelector("div.menu > button"); //Seleccionamos el botón que acciona el navbar
-
+const botonCross = document.querySelector(".navbar button"); //El botón que cierra el navbar
+const navbar = document.querySelector("div.navbar"); //El propio navbar
+const imgnavbar = document.querySelector("div.navbar img");
 
 // FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
-    const botonCross = document.querySelector(".navbar button"); //El botón que cierra el navbar
-    const navbar = document.querySelector("div.navbar"); //El propio navbar
     
     botonBurguer.addEventListener("click", () => { //Cada vez que se haga click en el boton principal
-        alert("click");
+        ig.parentElement.classList.toggle("holadios");
         if(window.innerWidth > 500){ //Si el ancho de la pantalla es mayor que 500
             navbar.style.left = "80%"; //Le damos un 80% al navbar para que se vea en su totalidad --> además, al tener el transition ya en la clase y realizar un cambio en el valor left, se activará la animación
             navbar.style.width = "20%"; //Le ponemos un 20% de ancho
             botonCross.style.color = "white"; //Ponemos el boton de la X del navbar en blanco
+            imgnavbar.style.maxWidth = "100%";
         }else{ //Si el ancho es menor de 500
             navbar.style.left = "0%"; //0% para que se vea el navbar en su totalidad
             navbar.style.width = "100vw" //Le ponemos el 100% del ancho de la pantalla
