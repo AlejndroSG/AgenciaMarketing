@@ -10,12 +10,27 @@ const enlaces = document.querySelectorAll("#ajustes div a");
 const noticias = document.querySelectorAll("#destacados .interesantes article");
 const modal = document.querySelector(".modal");
 const secciones = document.querySelectorAll("#notices section");
+const header = document.querySelector("#resto");
+const banner = document.querySelector("#banner");
 // let butmodal = null;
 
 
 
 // FUNCIONALIDADES
 document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            // header.classList.add("scrolled");
+            header.style.position = "fixed";
+            header.style.top = "0";
+            header.style.backgroundColor = "rgba(54, 54, 54, 0.918)";
+        } else {
+            // header.classList.remove("scrolled");
+            header.style.position = "relative";
+            header.style.backgroundColor = "rgba(54, 54, 54)";
+        }
+    })
+
     ig.addEventListener("mouseover", () => {
         igPath.style.fill = 'pink';
     })
@@ -80,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
             const offset = -currentIndex * 100;
             galleryContainer.style.transform = `translateX(${offset}%)`;
+            banner.style.background = `url(./fotos/Primera_Página/Banner/${currentIndex + 1}.png) no-repeat center center/cover`;
           }
     
         let autoplayInterval = null;
