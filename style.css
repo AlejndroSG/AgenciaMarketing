@@ -48,7 +48,27 @@ header{
             a{
                 text-decoration: none;
                 color: white;
+                position: relative;
             }
+
+            a:hover:after {
+              width: 100%;
+              left: 0%;
+            }
+            
+            a:after {
+              content: "";
+              bottom: -2px;
+              left: 50%;
+              position: absolute;
+              width: 0%;
+              height: 2px;
+              background-color: #fff;
+              transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+              transition-duration: 400ms;
+              transition-property: width, left;
+            }
+            
         }
     }
 }
@@ -56,7 +76,6 @@ header{
     background-color: rgba(54, 54, 54);
     position: relative;
     transition: all 0.5s;
-    /* top: 0; */
 }
 
 div.menu {
@@ -1468,6 +1487,51 @@ footer{
       }
     }
 
+    /* Proyectos */
+    section#proyectos{
+      & > div:nth-child(2), & > div:nth-child(4){
+          height: auto;
+          flex-flow: column;
+        }
+      & > div:nth-child(3), & > div:nth-child(5){
+        height: auto;
+        flex-flow: column-reverse;
+      }
+      .padding {
+        width: 100%;
+      }
+
+      .images {
+        width: 100%;
+        img{
+          height: auto;
+        }
+      }
+      }
+
+      section#clientes {
+          & > div {
+            flex-wrap: wrap;
+
+            & > div {
+              width: 40%;
+            }
+          }
+      }
+
+  }
+
+  @media (max-width: 600px) {
+    /* Proyectos */
+    section#hablar {
+        & > div {
+          flex-wrap: wrap;
+            div {
+                width: 100%;
+                margin: 30px 0;
+            }
+        }
+    }
   }
 
   @media (max-width: 768px) {
@@ -1600,5 +1664,29 @@ footer{
                 font-size: 2rem;
             }
         }
+      }
+
+      /* Proyectos */
+      section#proyectos{
+        h1{
+          font-size: 3rem;
+        }
+        & > div {
+          .padding {
+            padding: 70px 40px;
+          
+            h2{
+              font-size: 2.2rem;
+            }
+          }
+        }
+        }
+
+        section#clientes {
+          & > div {
+            & > div {
+              width: 100%;
+            }
+          }
       }
     }
