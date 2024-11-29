@@ -7,7 +7,7 @@ const mail = document.querySelector(".mail svg");
 const was = document.querySelector(".was svg");
 const contadoresDiv = document.querySelectorAll(".contador");
 const enlaces = document.querySelectorAll("#ajustes div a");
-const noticias = document.querySelectorAll("#destacados .interesantes article");
+const noticias = document.querySelectorAll(".destacados .interesantes article");
 const modal = document.querySelector(".modal");
 const secciones = document.querySelectorAll("#notices section");
 const header = document.querySelector("#resto");
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     botonBurguer.addEventListener("click", () => { //Cada vez que se haga click en el boton principal
         ig.parentElement.classList.toggle("holadios");
-        if(window.innerWidth > 500){ //Si el ancho de la pantalla es mayor que 500
+        if(window.innerWidth > 2100){ //Si el ancho de la pantalla es mayor que 500
             navbar.style.left = "80%"; //Le damos un 80% al navbar para que se vea en su totalidad --> además, al tener el transition ya en la clase y realizar un cambio en el valor left, se activará la animación
             navbar.style.width = "20%"; //Le ponemos un 20% de ancho
             botonCross.style.color = "white"; //Ponemos el boton de la X del navbar en blanco
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let butmodal = document.querySelector(".modal button");
             modal.style.top = "50%";
             modal.style.left = "50%";
-            document.body.style.overflow = "hidden";
+            // document.body.style.overflow = "hidden";
 
             secciones.forEach(seccion => {
                 seccion.style.filter = "blur(10px) brightness(0.7) opacity(0.7) saturate(0.5) contrast(0.5)";
